@@ -3,6 +3,7 @@ arguments = $(ClusterId) $(Process)
 log = logs/$(ClusterId).$(Process).log
 output = logs/$(ClusterId).$(Process).out
 error = logs/$(ClusterId).$(Process).err
++JobFlavour = "tomorrow"
 
 # how many jobs?
 queue 10
