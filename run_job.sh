@@ -7,7 +7,7 @@ echo "Sub task started ${seed}"
 
 events=10000 # recommend one job 10k, you can start more jobs in submit.job
 
-detector=delphes_card_ATLAS_PileUp.tcl
+detector=ATLAS_PileUp_10deg_antiKt06.tcl
 pileup=50
 ./run.sh vbf_pileup50 vbf.mg5 vbf.pythia       ${detector} ${seed} ${events} ${pileup} &
 ./run.sh dijet_pileup50 dijet.mg5 dijet.pythia ${detector} ${seed} ${events} ${pileup} &
