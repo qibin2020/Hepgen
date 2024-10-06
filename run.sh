@@ -5,7 +5,7 @@ pythia_card=${3}
 det_card=${4}
 seed=${5:-0}
 events=${6:-1000}
-mu=${7:-0}
+mu=${7:-50}
 
 echo "Start ${@}"
 
@@ -31,7 +31,12 @@ cp ${STARTDIR}/detector/${det_card} delphes.tcl
 sed -i "s#<PILEUP>#${PILEUP_FILE}#g" delphes.tcl
 sed -i "s#<MU>#${mu}#g" delphes.tcl
 
-time ${MG5_PROG} run.cmd
-gzip -dc ${PWD}/generation/Events/run_01/tag_1_pythia8_events.hepmc.gz   | ${DELPHES_PROG} delphes.tcl ${name}_${seed}.root -
+# ok copy the zero pileup one
+cp ${STARTDIR}/detector/ATLAS_PileUpZero_10deg_antiKt06.tcl delphes_0.tcl
 
-tar -czf ${name}_${seed}.tar.gz generation && rm -rf generation
+time ${MG5_PROG} run.cmd
+mv ${PWD}/generation/Events/run_01/tag_1_pythia8_events.hepmc.gz ${name}_${seed}.hepmc.gz
+gzip -dc ${name}_${seed}.hepmc.gz | ${DELPHES_PROG} delphes.tcl ${name}_${seed}.root -
+gzip -dc ${name}_${seed}.hepmc.gz | ${DELPHES_PROG} delphes_0.tcl ${name}_${seed}.PileUpZero.root -
+
+tar czf ${name}_${seed}.tar.gz generation && rm -rf generation
