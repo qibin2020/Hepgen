@@ -1,0 +1,2 @@
+generate p p > t t~ , (t > b w+ , w+ > l+ vl) , (t~ > b~ w- , w- > j j)
+add process p p > t t~ , (t > b w+ , w+ > j j) , (t~ > b~ w- , w- >  l- vl~)

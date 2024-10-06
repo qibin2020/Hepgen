@@ -1,0 +1,9 @@
+jobs/*
+!jobs
+archives/
+logs/*
+!logs
+py.py
+MinBias.pileup
+MinBias.root
+
