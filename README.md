@@ -16,22 +16,24 @@ ls /cvmfs/sft.cern.ch/lcg/views/LCG_xxx/x86_64-*-opt/setup.sh
 refer to madgraph homepage. Remeber to `install Delphes Pythia8` inside the MG5
 
 - install the `standalone Delphes` (optional, only for pileup file)
-This need only once to generate the pileup file, after that this installation could be removed. The delphes should be compiled with pythia. See `special_env.sh` in `pileup` folder.
-Alternatively you can download the pielup file directly and this section is not needed.
+This need only once to generate the pileup file, after that this installation could be removed. The delphes should be compiled with pythia. See `special_env.sh` in `pileup` folder. 
+Alternatively you can download the pielup file directly and this section is not needed. The codes are from [here](https://gitlab.com/stroche/particle-physics-methods).
 
 # Modification to local environment
 Check the file `env.sh` and replace to your local madgraph installation path and pileup file path.
 
 Also, remeber to replace the lcg environment as mentioned before.
 
-For the pileup: please refer to the folder `pileup` and readme there if generate by yourself, or download existing one.
+For the pileup: please refer to the folder `pileup` and readme there if generate by yourself, or download existing one. The codes are from [here](https://gitlab.com/stroche/particle-physics-methods).
 
 # Check the config, detector and process defination
 templates hosted in `config`: not recommended to change
 
 detector stored in `detector`: not recommended to change
-- `ATLAS_PileUp_10deg_antiKt06.tcl`: with variable Pileup. (10degree for all eta slice)
-- `ATLAS_PileUpZero_10deg_antiKt06.tcl`: with no pileup and pileup removal algorithm disabled. (10degree for all eta slice)
+- `ATLAS_PileUp_10deg_antiKt06.tcl`: with variable Pileup. (10degree for all eta slice).
+
+The following one provoded for reference:
+- `ATLAS_PileUpZero_10deg_antiKt06.tcl`: with no pileup and pileup removal algorithm disabled. (10degree for all eta slice). 
 - `delphes_card_ATLAS_PileUp.tcl`: original card shipped with Delphes. For reference.
 - `delphes_card_ATLAS.tcl`: original card shipped with Delphes. For reference.
 
@@ -40,7 +42,7 @@ process in `process`: define you process here. Only the process-specific cmd nee
 ```
 # Usage example: run locally
 # ./run.sh [name] [process_mg5] [process_pythia] [detector] [seed] [events] [pileup]
-./run.sh vbf vbf.mg5 vbf.pythia ATLAS_PileUp_10deg_antiKt06.tcl 1 1000 50
+./run.sh vbf vbf.mg5 vbf.pythia ATLAS_PileUp_10deg_antiKt06.tcl 1 100 50
 ```
 
 ```
