@@ -36,7 +36,7 @@ cp ${STARTDIR}/detector/ATLAS_PileUpZero_10deg_antiKt06.tcl delphes_0.tcl
 
 time ${MG5_PROG} run.cmd
 mv ${PWD}/generation/Events/run_01/tag_1_pythia8_events.hepmc.gz ${name}_${seed}.hepmc.gz
-gzip -dc ${name}_${seed}.hepmc.gz | ${DELPHES_PROG} delphes.tcl ${name}_${seed}.root -
+gzip -dc ${name}_${seed}.hepmc.gz | ${DELPHES_PROG} delphes.tcl ${name}_${seed}.PileUpN.root -
 gzip -dc ${name}_${seed}.hepmc.gz | ${DELPHES_PROG} delphes_0.tcl ${name}_${seed}.PileUpZero.root -
 
 tar czf ${name}_${seed}.tar.gz generation && rm -rf generation
