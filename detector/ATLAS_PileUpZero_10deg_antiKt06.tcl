@@ -40,6 +40,7 @@ set ExecutionPath {
   MuonIsolation
   
   MissingET
+  CaloMissingET
   
   JetFlavorAssociation
 
@@ -609,6 +610,11 @@ module Merger MissingET {
   set MomentumOutputArray momentum
 }
 
+module Merger CaloMissingET {
+# add InputArray InputArray
+  add InputArray EFlowMerger/eflow
+  set MomentumOutputArray momentum
+}
 
 ##################
 # Scalar HT merger
@@ -741,5 +747,6 @@ module TreeWriter TreeWriter {
   # add Branch UniqueObjectFinder/photons Photon Photon
   # add Branch UniqueObjectFinder/muons Muon Muon
   add Branch MissingET/momentum MissingET MissingET
+  add Branch CaloMissingET/momentum CaloMissingET MissingET
   # add Branch ScalarHT/energy ScalarHT ScalarHT
 }
